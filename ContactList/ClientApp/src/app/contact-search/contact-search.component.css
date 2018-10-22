@@ -1,0 +1,31 @@
+h2 {
+  color: #607D8B;
+}
+button {
+  background-color: #eee;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: Arial;
+}
+
+  button:hover {
+    background-color: #cfd8dc;
+  }
+
+.search-result th {
+  background-color: white;
+  color: #607D8B;
+  cursor: auto;
+}
+
+.search-result tr {
+  background-color: white;
+  cursor: pointer;
+  color: #888;
+}
+  .search-result tr:hover {
+    background-color: #607D8B;
+    color: white;
+  }

@@ -1,0 +1,49 @@
+<h1>Welcome to your contact list web application!</h1>
+<br />
+
+<app-contact-search></app-contact-search>
+
+<div>
+  <h2 >Contact list</h2>
+  <h2 *ngIf="!contacts"><em>Loading...</em></h2>
+  <table class="contacts table">
+    <tr *ngIf="count">
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Address</th>
+      <th>Job title</th>
+      <th></th>
+    </tr>
+    <tr *ngFor="let contact of contacts; let i = index; trackBy:trackByFn" routerLink="/contact/{{contact.id}}">
+      <td *ngIf="contact.firstName">
+        {{ contact.firstName }}
+      </td>
+      <td *ngIf="!contact.firstName">
+        -
+      </td>
+      <td *ngIf="contact.lastName">
+        {{ contact.lastName }}
+      </td>
+      <td *ngIf="!contact.lastName">
+        -
+      </td>
+      <td *ngIf="contact.address">
+        {{ contact.address }}
+      </td>
+      <td *ngIf="!contact.address">
+        -
+      </td>
+      <td *ngIf="contact.jobTitle">
+        {{ contact.jobTitle }}
+      </td>
+      <td *ngIf="!contact.jobTitle">
+        -
+      </td>
+      <td>
+        <button class="delete" (click)="delete(contact.id, i, $event)">x</button>
+      </td>
+    </tr>
+  </table>
+</div>
+
+  <h2 *ngIf="!count">Your contact list is empty</h2>

@@ -1,0 +1,43 @@
+h1 {
+  color: #607D8B;
+}
+
+h2 {
+  color: #607D8B;
+}
+.contacts th {
+  background-color: white;
+  color: #607D8B;
+  cursor: auto;
+}
+.contacts tr {
+  background-color: white;
+  cursor: pointer;
+  color: #888;
+}
+
+.contacts .clickable {
+}
+
+  .contacts tr:hover {
+    background-color: #607D8B;
+    color: white;
+  }
+
+
+button {
+  background-color: #eee;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: Arial;
+}
+
+  button:hover {
+    background-color: #cfd8dc;
+  }
+
+  .delete {
+    color: crimson;
+  }

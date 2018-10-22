@@ -1,0 +1,37 @@
+<div id="search-component">
+  <h2>Contact Search</h2>
+  <div class="form-inline">
+    <input [(ngModel)]="searching" placeholder="terms to search" class="form-control" />
+    <button (click)="search()">Search</button>
+    <button (click)="clear()">Clear search results</button>
+
+    <p *ngIf="searched && !count">No results</p>
+
+    <table class="search-result table">
+      <tr *ngIf="searched && count">
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Address</th>
+        <th>Job title</th>
+      </tr>
+      <tr *ngFor="let contact of contacts; let i = index; trackBy:trackByFn" routerLink="/contact/{{contact.id}}">
+        <td *ngIf="contact.firstName">
+            {{ contact.firstName }}
+        </td>
+        <td *ngIf="!contact.firstName">-</td>
+        <td *ngIf="contact.lastName">
+            {{ contact.lastName }}
+        </td>
+          <td *ngIf="!contact.lastName">-</td>
+        <td *ngIf="contact.address">
+            {{ contact.address }}
+        </td>
+          <td *ngIf="!contact.address">-</td>
+        <td *ngIf="contact.jobTitle">
+            {{ contact.jobTitle }}
+        </td>
+          <td *ngIf="!contact.jobTitle">-</td>
+      </tr>
+    </table>
+  </div>
+</div>

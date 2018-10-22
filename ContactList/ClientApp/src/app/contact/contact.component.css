@@ -1,0 +1,39 @@
+h2 {
+  color: #607D8B;
+}
+h4 {
+  color: #607D8B;
+  font-weight: bold;
+  margin: .5em 0;
+}
+label {
+  display: inline-block;
+  width: 10em;
+  margin: .5em 0;
+  color: #607D8B;
+  font-weight: bold;
+}
+input {
+  height: 2em;
+  font-size: 1em;
+  padding-left: .4em;
+}
+li {
+  list-style-type: none;
+}
+button {
+  margin-top: 20px;
+  font-family: Arial;
+  background-color: #eee;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #cfd8dc;
+}
+
+.delete {
+  color: crimson;
+}

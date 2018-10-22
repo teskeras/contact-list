@@ -1,0 +1,55 @@
+<h2>Add a new contact</h2>
+<div class="form-inline">
+  <label>Contact first name: </label><input [(ngModel)]="details.firstName" placeholder="first name" class="form-control"/>
+</div>
+<div class="form-inline">
+  <label> Contact last name: </label><input [(ngModel)]="details.lastName" placeholder="last name" class="form-control"/>
+</div>
+<div class="form-inline">
+  <label> Contact address: </label><input [(ngModel)]="details.address" placeholder="address" class="form-control"/>
+</div>
+<div class="form-inline">
+  <label> Contact job title: </label><input [(ngModel)]="details.jobTitle" placeholder="job title" class="form-control"/>
+</div>
+<div class="form-inline">
+<h4>Phones</h4>
+<ul class="phone">
+  <li *ngFor="let phone of details.phones; let i = index; trackBy:trackByFn">
+    <input [(ngModel)]="details.phones[i].number" placeholder="phone number" class="form-control" />
+    <button class="delete" title="delete phone" (click)="deletePhone(i)">x</button>
+  </li>
+  <li>
+    <button (click)="addPhone()">Add a new phone number</button>
+  </li>
+  <li>
+    <span>{{ phoneMessage }}</span>
+  </li>
+</ul>
+<h4>Emails</h4>
+<ul class="email">
+  <li *ngFor="let email of details.emails; let i = index; trackBy:trackByFn">
+    <input [(ngModel)]="details.emails[i].address" placeholder="email address" class="form-control" />
+    <button class="delete" title="delete email" (click)="deleteEmail(i)">x</button>
+  </li>
+  <li>
+    <button (click)="addEmail()">Add a new email address</button>
+  </li>
+  <li>
+    <span>{{ emailMessage }}</span>
+  </li>
+</ul>
+<h4>Tags</h4>
+<ul class="tag">
+  <li *ngFor="let tag of details.tags; let i = index; trackBy:trackByFn">
+    <input [(ngModel)]="details.tags[i].title" placeholder="tag title" class="form-control" />
+    <button class="delete" title="delete tag" (click)="deleteTag(i)">x</button>
+  </li>
+  <li><button (click)="addTag()">Add a new tag title</button></li>
+</ul>
+</div>
+<div>
+  <button (click)="goBack()">Go back</button>
+    <button (click)="addContact()">
+    Add contact
+  </button>
+</div>

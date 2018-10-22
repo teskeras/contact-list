@@ -1,0 +1,62 @@
+<p *ngIf="!contact"><em>Loading...</em></p>
+<div *ngIf="contact" class="form-inline">
+  <h2>{{contact.firstName | uppercase}} {{contact.lastName | uppercase}} details</h2>
+  <div>
+    <label>First name: </label>
+    <input [(ngModel)]="contact.firstName" placeholder="first name" class="form-control">
+  </div>
+  <div>
+    <label>Last name: </label>
+    <input [(ngModel)]="contact.lastName" placeholder="last name" class="form-control">
+  </div>
+  <div>
+    <label>Address: </label>
+    <input [(ngModel)]="contact.address" placeholder="address" class="form-control">
+  </div>
+  <div>
+    <label>Job title: </label>
+    <input [(ngModel)]="contact.jobTitle" placeholder="job title" class="form-control">
+  </div>
+  <h4>Phones</h4>
+  <ul class="phone">
+    <li *ngFor="let phone of contact.phones; let i = index; trackBy:trackByFn">
+      <input [(ngModel)]="contact.phones[i].number" placeholder="phone number" class="form-control" />
+      <button class="delete" title="delete phone" (click)="deletePhone(i)">x</button>
+    </li>
+    <li>
+      <button (click)="addPhone()">Add a new phone number</button>
+    </li>
+    <li>
+      <span>{{ phoneMessage }}</span>
+    </li>
+  </ul>
+  <h4>Emails</h4>
+  <ul class="email">
+    <li *ngFor="let email of contact.emails; let i = index; trackBy:trackByFn">
+      <input [(ngModel)]="contact.emails[i].address" placeholder="email address" class="form-control" />
+      <button class="delete" title="delete email" (click)="deleteEmail(i)">x</button>
+    </li>
+    <li>
+      <button (click)="addEmail()">Add a new email address</button>
+    </li>
+    <li>
+      <span>{{ emailMessage }}</span>
+    </li>
+  </ul>
+  <h4>Tags</h4>
+  <ul class="tag">
+    <li *ngFor="let tag of contact.tags; let i = index; trackBy:trackByFn">
+      <input [(ngModel)]="contact.tags[i].title" placeholder="tag title" class="form-control" />
+      <button class="delete" title="delete tag" (click)="deleteTag(i)">x</button>
+    </li>
+    <li>
+      <button (click)="addTag()">Add a new tag title</button>
+    </li>
+  </ul>
+  <div>
+    <button (click)="goBack()">Go back</button>
+    <button (click)="delete()">Delete contact</button>
+    <button (click)="save()">Save changes</button>
+    <span>{{ saveMessage }}</span>
+  </div>
+</div>
